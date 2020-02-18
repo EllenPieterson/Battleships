@@ -10,3 +10,13 @@
 //     - MISS: move position /= ship position
 // 6. Player wins when all 3 ships have been HIT
 // 7.  Reset game
+
+
+const onload = () => {
+    const $allDivs = $('div');
+    const $firstDiv = $('div').first();
+
+for (let i = 0; i < 16; i++) {
+    // Write the code to create 16 divs and give each a random background color
+    
+}
