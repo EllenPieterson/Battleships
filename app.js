@@ -1,4 +1,4 @@
-// 1. Allocate a number to each position on the 4x4 baord (0 - 15)
+// 1. Allocate a number to each position on the 4x4 board (0 - 15)
 // 2. Randomly allocate a number to each ship (3 ships in total) which will indicate position on board
 //     - Do this for both player 1 and player 2
 //     - Ensure the positions of player 1s ships are not shown to player 2 and vice versa
@@ -11,12 +11,22 @@
 // 6. Player wins when all 3 ships have been HIT
 // 7.  Reset game
 
+const $allDivs = $('div');
 
-const onload = () => {
-    const $allDivs = $('div');
-    const $firstDiv = $('div').first();
+let numberOfClicks = 0;
 
-for (let i = 0; i < 16; i++) {
-    // Write the code to create 16 divs and give each a random background color
-    
-}
+$("div").on("click", function() {
+    $(this).css({backgroundColor: "red"});
+    numberOfClicks++
+    if (numberOfClicks === 3) {
+        $("div").off("click");
+        console.log (numberOfClicks);
+    } 
+});
+
+
+
+// variable that declares the number of clicks
+// if statement that says if the number of clicks is 3 return you've placed all your ships and turn off click event
+// prevent player from being able to click inside same div more than once
+// if statement goes inside click function
