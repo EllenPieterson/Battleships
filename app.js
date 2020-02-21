@@ -21,46 +21,58 @@ let moves = {
     player2Shot: []
 }
 
-//make another grid using dry code 
-//define a box in js and push it into html 
 
 for (let i = 0; i < 16; i++) {
     const $newDiv = $('<div></div>');
     $('section.grid').append($newDiv);
 }
 
-// variable that declares the number of clicks
-// if statement that says if the number of clicks is 3  turn off click event
-// prevent player from being able to click inside same div more than once
-// if statement goes inside click function
+// add ship to the page randomly
 
-$("div").one("click", function () {
-    const turn = turnCount % 2 === 0 ? "player1Shot" : "player2Shot"; {
+
+
+$("#player1 div").one("click", function () {
+    const turn = turnCount % 2 === 0 ? "player1Shot" : "player2Shot"; 
     if (turnCount % 2 === 0) {
+        console.log("PLAYER 1")
         event.target.innerHTML = player1;
         turnCount++;
         moves[turn].push($(event.target).index())
-    } else if (turnCount % 2 === 1) {
-        event.target.innerHTML = player2;
-        turnCount ++; 
-        moves[turn].push($(event.target).index())
-        console.log(moves)
-    }}
         $(this).css({ backgroundColor: "red" });
         numberOfClicks++
+
+        // If THIS has a class ship, add one to player ones score
+        // If player one score is 3, player wins
         if (numberOfClicks === 6) {
             $("div").off("click");
-
             console.log(numberOfClicks);
         }
-    });
+    } 
+
+});
+
+$("#player2 div").one("click", function () {
+    const turn = turnCount % 2 === 0 ? "player1Shot" : "player2Shot"; 
+    if (turnCount % 2 === 1) {
+        console.log("PLAYER 2");
+        event.target.innerHTML = player2;
+        turnCount++;
+        moves[turn].push($(event.target).index())
+        $(this).css({ backgroundColor: "red" });
+        numberOfClicks++
+                // If THIS has a class ship, add one to player twos score
+                // If player two score is 3, player wins 
+        if (numberOfClicks === 6) {
+            $("div").off("click");
+            console.log(numberOfClicks);
+        }
+
+    } 
+    
+});
 
 
 
 
-//define whose turn it is (player1 or player2)
-//specify where player1 and player2 moves can go
-
-
-// allow three clicks inside each player grid
 // display "you have placed all your ships in the battle field" after each player has done their three clicks
+//boats
