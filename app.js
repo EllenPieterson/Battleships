@@ -9,10 +9,9 @@
 //     - HIT: move position = ship position
 //     - MISS: move position /= ship position
 // 6. Player wins when all 3 ships have been HIT
-// 7.  Reset game
+// 7. Reset game
 
 
-const $allDivs = $('div');
 
 let numberOfClicks = 0;
 let turnCount = 0;
@@ -21,11 +20,27 @@ let moves = {
     player2Shot: []
 }
 
+// let myArray = ["blue", "red"]
 
 for (let i = 0; i < 16; i++) {
     const $newDiv = $('<div></div>');
     $('section.grid').append($newDiv);
+
+    if (i < 3) {
+        $newDiv.css({ backgroundColor: "blue"});
+    }
+
+    console.log($newDiv)
 }
+
+// for (let i = 0; i < 5; i++) {
+//     const $newDiv = $('<div></div>').css("background-color", myArray [Math.floor(Math.random()*1)]);
+    
+// }
+
+// const $newDiv = $('<div></div>').css("background-color",randomColor);
+//     $('section').append($newDiv)
+
 
 // add ship to the page randomly
 
@@ -35,10 +50,10 @@ $("#player1 div").one("click", function () {
     const turn = turnCount % 2 === 0 ? "player1Shot" : "player2Shot"; 
     if (turnCount % 2 === 0) {
         console.log("PLAYER 1")
-        event.target.innerHTML = player1;
         turnCount++;
         moves[turn].push($(event.target).index())
-        $(this).css({ backgroundColor: "red" });
+        //$(this).append("<img src='images/IMG_9798.jpg' />");
+        $(this).css({ backgroundColor: "blue" });
         numberOfClicks++
 
         // If THIS has a class ship, add one to player ones score
@@ -55,9 +70,9 @@ $("#player2 div").one("click", function () {
     const turn = turnCount % 2 === 0 ? "player1Shot" : "player2Shot"; 
     if (turnCount % 2 === 1) {
         console.log("PLAYER 2");
-        event.target.innerHTML = player2;
         turnCount++;
         moves[turn].push($(event.target).index())
+        //$(this).append("<img src='images/IMG_9798.jpg' />");
         $(this).css({ backgroundColor: "red" });
         numberOfClicks++
                 // If THIS has a class ship, add one to player twos score
@@ -71,8 +86,20 @@ $("#player2 div").one("click", function () {
     
 });
 
-
-
-
 // display "you have placed all your ships in the battle field" after each player has done their three clicks
 //boats
+
+
+//randomly place three objects in each grid 
+//store the location of these objects in an array?
+//use the player counter above to allow each player to click on the grid in turn
+//HIT - when player move = randomly placed object
+//MISS - when player move /= randomly placed object
+//WIN - when player HITs all objects that were randomly placed
+
+
+// let myArray = ["blue", "red"]
+
+// const startGame = () => {
+
+// }
